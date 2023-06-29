@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import tw from 'tailwind-react-native-classnames';
 
@@ -7,13 +7,19 @@ import { View, Text, FlatList } from 'react-native';
 import BottomTabNavigator from '../components/BottomTabNavigator';
 import CaseContactListCard from '../components/CaseContactListCard';
 
+import useFetch from '../helper/hooks/useFetch';
+
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledFlatList = styled(FlatList);
 
+
+
 const CaseContactListScreen = ({ navigation }) => {
   const [selectedContact, setSelectedContact] = useState();
-  const data = [{ name: '🦋CINA-11-1002' }, { name: '🦋CINA-11-1003' }, { name: '🦋CINA-11-1004' }];
+  const { data, isLoading, error, refetch } = useFetch(`casa_cases`);
+  // const data = [{ name: '🦋CINA-11-1002' }, { name: '🦋CINA-11-1003' }, { name: '🦋CINA-11-1004' }];
+  
 
   return (
     <StyledView className="flex items-center gap-3 flex-1 bg-[#d5d7da]">
@@ -28,11 +34,12 @@ const CaseContactListScreen = ({ navigation }) => {
           <StyledText className="pr-2 text-xl font-bold">Show/Hide</StyledText>
         </StyledView>
         <StyledView className="flex flex-col justify-center my-10 h-80">
-          <StyledFlatList
+
+          {!isLoading ? <StyledFlatList
             data={data}
             renderItem={({ item }) => <CaseContactListCard item={item} navigation={navigation} />}
-            keyExtractor={(item) => item.name}
-          />
+            keyExtractor={(item) => item.id.toString()}
+          /> : <StyledText className="text-3xl font-bold">Loading...</StyledText>}
         </StyledView>
       </StyledView>
       <BottomTabNavigator

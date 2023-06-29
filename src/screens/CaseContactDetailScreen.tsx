@@ -12,7 +12,7 @@ const StyledText = styled(Text);
 const StyledCaseContactDetailCard = styled(CaseContactDetailCard);
 const StyledFlatList = styled(FlatList);
 
-const CaseContactDetailScreen = ({ navigation }) => {
+const CaseContactDetailScreen = ( item, navigation ) => {
   const data = [
     {
       name: `CASA, Education`,
@@ -31,10 +31,12 @@ const CaseContactDetailScreen = ({ navigation }) => {
     },
   ];
 
+  
+
   return (
     <StyledView className="flex items-center gap-3 flex-1 bg-[#d5d7da]">
       <StyledView className="flex-col justify-center h-1/6">
-        <StyledText className="flex pt-4 text-3xl font-bold">🦋CINA-11-1002</StyledText>
+        <StyledText className="flex pt-4 text-3xl font-bold">{item.case_number}lol</StyledText>
       </StyledView>
       <StyledView
         className="flex flex-col bg-white rounded-xl items-center w-80 py-4 h-4/6"
