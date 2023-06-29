@@ -21,14 +21,14 @@ describe('BottomTabNavigator', () => {
 
     const myCasesButton = getByText('My Cases');
     fireEvent.press(myCasesButton);
-    expect(navigateMock).toHaveBeenCalledWith('CaseContactList');
+    expect(navigateMock).toHaveBeenCalledWith('caseContactListFlow', {});
 
     const createButton = getByText('Create');
     fireEvent.press(createButton);
-    expect(navigateMock).toHaveBeenCalledWith('CaseContactList');
+    expect(navigateMock).toHaveBeenCalledWith('CaseContactCreateFlow', {});
 
     const accountButton = getByText('Account');
     fireEvent.press(accountButton);
-    expect(navigateMock).toHaveBeenCalledWith('AccountScreen');
+    expect(navigateMock).toHaveBeenCalledWith('AccountFlow', {});
   });
 });
