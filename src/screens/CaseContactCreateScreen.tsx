@@ -376,7 +376,7 @@ const CaseContactCreateScreen = ({ navigation }) => {
   return (
     <StyledView className="flex items-center gap-3 flex-1 bg-[#d5d7da]">
       <StyledView className="flex-col justify-center h-1/6">
-        <StyledText className="text-3xl flex justify-start font-bold">{`Case Contact Create`}</StyledText>
+        <StyledText className="text-3xl flex justify-start font-bold">{`New Case Contact`}</StyledText>
       </StyledView>
       <StyledView className="flex justify-around items-center h-4/6 w-80">
         <StyledScrollView className="flex p-2 flex-col h-5/6 bg-[#c0c5cd] rounded-xl w-80">

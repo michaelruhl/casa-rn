@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import useFetch from '../helper/hooks/useFetch';
 
 export const createScreenSlice = createSlice({
   name: 'createScreen',
@@ -66,8 +67,15 @@ export const createScreenSlice = createSlice({
     minutes: '',
     notes: '',
     date: new Date().toISOString().split('T')[0].toString(),
+    detail: false, 
   },
   reducers: {
+    isDetailed: (state, action) => {
+      return {
+        ...state,
+        detail: action.payload,
+      };
+    },
     check1: (state, action) => {
       return {
         ...state,

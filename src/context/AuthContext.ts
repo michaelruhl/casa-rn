@@ -64,8 +64,8 @@ const signin = (dispatch: Dispatch) => {
     };
     try {
       const response = await authApi.post('/users/sign_in', params);
-      console.log(response.headers);
-      console.log(response.headers.authorization);
+      // console.log(response.headers);
+      // console.log(response.headers.authorization);
       dispatch({
         type: 'signin',
         payload: response.headers.authorization,
